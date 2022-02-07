@@ -1,0 +1,44 @@
+﻿@page
+@model BallotPalette.Pages.BallotsModel
+@{
+    ViewData["Title"] = "Ballots";
+}
+
+<h1>Ballots</h1>
+
+<form method="get">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" class="form-control" 
+                   asp-for="SearchTerm" />
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="icono-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+</form>
+
+<table class="table">
+
+    @foreach (var ballot in Model.Ballots)
+    {
+    <tr>
+        <td>@ballot.Id</td>
+        <td>@ballot.Name</td>
+        <td>@ballot.TeamId</td>
+        <td>
+            <a class="btn btn-lg" asp-page="./Detail" asp-route-ballotId="@ballot.Id">
+                <i class="icono-eye"></i>
+            </a>
+        </td>
+        <td>
+            <a class="btn btn-lg" asp-page="./Edit" asp-route-ballotId="@ballot.Id">
+                <i class="icono-rename"></i>
+            </a>
+        </td>
+    </tr>
+    }
+</table>
+

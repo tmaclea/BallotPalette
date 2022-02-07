@@ -1,0 +1,23 @@
+﻿@page "{BallotId:int}"
+@model BallotPalette.Pages.Ballots.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>@Model.Ballot.Name</h1>
+
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
+<div>
+    Name: @Model.Ballot.Name
+</div>
+<div>
+    Id: @Model.Ballot.Id
+</div>
+
+
+
+<a asp-page="./List" class="btn btn-dark">All Ballots</a>

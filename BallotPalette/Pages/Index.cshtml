@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+
+        <div class="card mb-4 shadow-lg">
+            <a class="btn btn-lg" asp-page="./Ballots/List">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">See all ballots</h4>
+                </div>
+                <div class="card-body">
+                    <i class="icono-list"></i>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="card mb-4 shadow-lg">
+            <a class="btn btn-lg" asp-page="./Ballots/Edit">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Create new ballot</h4>
+                </div>
+                <div class="card-body">
+                    <i class="icono-plusCircle"></i>
+                </div>
+            </a>
+        </div>
+
+
+
+    </div>
+</div>

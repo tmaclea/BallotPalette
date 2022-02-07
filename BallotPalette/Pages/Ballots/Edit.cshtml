@@ -1,0 +1,37 @@
+﻿@page "{BallotId:int?}"
+@model BallotPalette.Pages.Ballots.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editing @Model.Ballot.Name</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Ballot.Id" />
+    <div class="form-group">
+        <label asp-for="Ballot.Name"></label>
+        <input asp-for="Ballot.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Ballot.Name"></span>
+    </div>
+    <div id="q_container" class="row mb-5">
+        @*<partial name="_Question" />*@
+
+    </div>
+    <div class="row mb-5" onclick="generateQuestion()">
+        <i class="icono-plusCircle"></i>
+    </div>
+    <div class="row mb-5">
+        <button type="submit" class="btn btn-lg btn-block btn-primary">Submit Ballot and continue</button>
+    </div>
+</form>
+
+<script>
+    var qNum = 0;
+    function generateQuestion() {
+        qNum += 1;
+        document.getElementById("q_container").innerHTML += 
+            '<div class="col-md-4 order-md-1"><div class="mb-3"><input id="q' + qNum + '" class="form-control" placeholder="Question" /><input class="form-control" id="op1q' + qNum + '" placeholder = "Option 1" /> <input class="form-control" id="op2q' + qNum + '" placeholder="Option 2" /><input class="form-control" id="op3q' + qNum + '" placeholder="Option 3 (Optional)" /><input class="form-control" id="op4q' + qNum + '" placeholder="Option 4 (Optional)" /><input class="form-control" id="op5q' + qNum + '" placeholder="Option 5 (Optional)" /><input class="form-control" id="op6q' + qNum + '" placeholder="Option 6 (Optional)" /></div ></div > ';
+    }
+
+    window.onload = generateQuestion();
+</script>
