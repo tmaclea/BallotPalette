@@ -26,6 +26,7 @@ namespace BallotPalette
         {
             services.AddSingleton<IBallotData, InMemoryBallotData>();
             services.AddSingleton<IQuestionData, InMemoryQuestionData>();
+            services.AddSingleton<IOptionData, InMemoryOptionData>();
             services.AddRazorPages();
         }
 
