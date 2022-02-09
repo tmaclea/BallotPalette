@@ -1,27 +1,14 @@
 ﻿#### Ballot creation/edit page
-- [ ] Ballot title input box
-- [ ] Question title input box
-- [ ] five or so answer input boxes
-- [ ] maybe an *add question* button 
+- [x] Ballot title input box
+- [x] Question title input box
+- [x] five or so answer input boxes
+- [ ] bind question text input boxes to the view model
+- [ ] bind option text boxes to the view model
+- [ ] fix input validation
 
 #### General
-- [ ] Figure out how to work with users in ASP.NET core
-	- Inject user?
 - [ ] Add to private github repo
 
-#### Login form 	
-- [ ] Fix width
-- [ ] Link to register
-
-#### Account creation (registration) form
-- [x] Username
-- [x] Password x2
-- [x] Organization 
-- [ ] Fix width
-- [x] Fix the input box for organization
-	- Should have a drop-down of existing organizations in addition to the text input
-	-[x] Alternatively a list of highlightable buttons or radio buttons
-	-[ ] Add an input box for a team/org when none of the supplied options apply
 
 #### Ballot list page
 - [ ] Page looks at the user's organization and shows the relevant ballots
@@ -29,12 +16,19 @@
 - [ ] Delete button
 
 #### Ballot detail page
-- [ ] If user hasn't voted on ballot, cannot see results
-- [ ] If user has voted on ballot, can see results
+- [ ] should show questions for a ballot
+- [ ] radio buttons for question options
+
+#### Ballot results page
+- [ ] separate page? incorporate into details page somehow?
+
+#### Reports page
+- [ ] must fulfill requirement #4
+- [ ] Make simple, give user option to select fields and just list the fields out in a table or something
 
 #### Database
-	- [ ] Add database
-	- [ ] Implement database in data access classes
+- [ ] Add database
+- [ ] Implement database in data access classes
 
 #### Aesthetic changes
 - [ ] Idk, make all the pages look pretty
@@ -47,4 +41,4 @@
 4. Be able to generate reports with multiple columns, rows, date-time stamp and title
 5. Exception controls
 6. validation functionality
-7. "industry appropriate security features" -- I doubt this is an issue since my application requires users to log-in
+7. "industry appropriate security features"
