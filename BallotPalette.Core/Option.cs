@@ -10,6 +10,7 @@ namespace BallotPalette.Core
     {
         [Required]
         public int Id { get; set; }
+        public int QuestionId { get; set; }
         public string Text { get; set; }
         public int NumVotes { get; set; }
     }

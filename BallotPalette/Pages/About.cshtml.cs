@@ -13,21 +13,17 @@ namespace BallotPalette.Pages
     public class AboutModel : PageModel
     {
         private readonly IConfiguration config;
-        private readonly IUserData userData;
 
         public string Message { get; set; }
-        public IEnumerable<User> Users { get; set; }
 
-        public AboutModel(IConfiguration config, IUserData userData)
+        public AboutModel(IConfiguration config)
         {
             this.config = config;
-            this.userData = userData;
         }
 
         public void OnGet()
         {
             Message = config["Message"];
-            Users = userData.GetUsersByName(null);
         }
     }
 }

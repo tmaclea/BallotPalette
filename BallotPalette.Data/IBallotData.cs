@@ -8,7 +8,6 @@ namespace BallotPalette.Data
 {
     public interface IBallotData
     {
-        IEnumerable<Ballot> GetBallotsByTeam(int teamId);
         IEnumerable<Ballot> GetBallotsByName(string teamName);
         Ballot GetBallotById(int id);
         Ballot Update(Ballot updatedBallot);
@@ -24,23 +23,15 @@ namespace BallotPalette.Data
         {
             ballots = new List<Ballot>
             {
-                new Ballot { Id = 1, Name = "Aperture Science ballot one", TeamId = 1},
-                new Ballot { Id = 2, Name = "Aperture Science second ballot", TeamId = 1},
-                new Ballot { Id = 3, Name = "Black Mesa ballot one", TeamId = 2 },
-                new Ballot { Id = 4, Name = "Black mesa second ballot", TeamId = 2 },
-                new Ballot { Id = 5, Name = "EO3 ballot one", TeamId = 3 },
-                new Ballot { Id = 6, Name = "EO3 second ballot", TeamId = 3 },
-                new Ballot { Id = 7, Name = "EO4 ballot one", TeamId = 4 },
-                new Ballot { Id = 8, Name = "EO4 second ballot", TeamId = 4 },
+                new Ballot { Id = 1, Name = "Aperture Science ballot one"},
+                new Ballot { Id = 2, Name = "Aperture Science second ballot"},
+                new Ballot { Id = 3, Name = "Black Mesa ballot one"},
+                new Ballot { Id = 4, Name = "Black mesa second ballot"},
+                new Ballot { Id = 5, Name = "EO3 ballot one"},
+                new Ballot { Id = 6, Name = "EO3 second ballot"},
+                new Ballot { Id = 7, Name = "EO4 ballot one"},
+                new Ballot { Id = 8, Name = "EO4 second ballot"}
             };
-        }
-
-        public IEnumerable<Ballot> GetBallotsByTeam(int team)
-        {
-            return from b in ballots
-                   where b.TeamId == team
-                   orderby b.Name
-                   select b;
         }
 
         public IEnumerable<Ballot> GetBallotsByName(string name = null)
@@ -78,7 +69,5 @@ namespace BallotPalette.Data
         {
             return 0;
         }
-
-
     }
 }
