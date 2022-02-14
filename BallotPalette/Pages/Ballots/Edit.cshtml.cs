@@ -13,6 +13,8 @@ namespace BallotPalette.Pages.Ballots
     {
         private readonly IBallotData ballotData;
         private readonly IQuestionData questionData;
+        private readonly IOptionData optionData;
+        private const int NUM_QUESTIONS = 6;
 
         [BindProperty]
         public Ballot Ballot { get; set; }
@@ -20,16 +22,18 @@ namespace BallotPalette.Pages.Ballots
         public List<Question> Questions { get; set; }
         public List<Option> Options { get; set; } 
 
-        public EditModel(IBallotData ballotData, IQuestionData questionData)
+        public EditModel(IBallotData ballotData, IQuestionData questionData, IOptionData optionData)
         {
             this.ballotData = ballotData;
             this.questionData = questionData;
+            this.optionData = optionData;
         }
 
         public IActionResult OnGet(int? ballotId)
         {
 
-            Questions = Enumerable.Repeat(default(Question), 6).ToList();
+            Questions = Enumerable.Repeat(new Question(), NUM_QUESTIONS).ToList();
+            Options = new List<Option>();
 
             if (ballotId.HasValue)
             {
@@ -39,6 +43,7 @@ namespace BallotPalette.Pages.Ballots
                 foreach(Question q in questionData.GetQuestionsByBallot(ballotId.Value).ToList())
                 {
                     Questions[i] = q;
+                    Options.AddRange(optionData.GetOptionsByQuestion(q.Id));
                     i++;
                 };
 
@@ -75,6 +80,26 @@ namespace BallotPalette.Pages.Ballots
             ballotData.Commit();
             TempData["Message"] = "Ballot saved";
             return RedirectToPage("./Detail", new { ballotId = Ballot.Id }); 
+        }
+
+        public string GetNextOption(int? questionId)
+        {
+            string optionText = string.Empty;
+
+            if (questionId.HasValue)
+            {
+                foreach (Option o in Options)
+                {
+                    if (o.QuestionId == questionId)
+                    {
+                        optionText = o.Text;
+                        Options.Remove(o);
+                        break;
+                    }
+                }
+            }
+
+            return optionText;
         }
     }
 }
