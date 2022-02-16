@@ -17,72 +17,72 @@
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[0].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[0].Id)" />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[0].Id)" />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[0].Id)" />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[0].Id)" />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[0].Id)" />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[0].Id)" />
+                <input class="form-control" placeholder="Option 1" asp-for="Q1_Options[0].Text" />
+                <input class="form-control" placeholder="Option 2" asp-for="Q1_Options[1].Text" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q1_Options[2].Text" />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q1_Options[3].Text" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q1_Options[4].Text" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q1_Options[5].Text" />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[1].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[1].Id)" />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[1].Id)" />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[1].Id)" />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[1].Id)" />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[1].Id)" />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[1].Id)" />
+                <input class="form-control" placeholder="Option 1" asp-for="Q2_Options[0].Text" />
+                <input class="form-control" placeholder="Option 2" asp-for="Q2_Options[1].Text"  />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q2_Options[2].Text"  />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q2_Options[3].Text"  />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q2_Options[4].Text"  />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q2_Options[5].Text"  />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[2].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[2].Id)" />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[2].Id)" />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[2].Id)" />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[2].Id)" />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[2].Id)" />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[2].Id)" />
+                <input class="form-control" placeholder="Option 1" asp-for="Q3_Options[0].Text"  />
+                <input class="form-control" placeholder="Option 2" asp-for="Q3_Options[1].Text" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q3_Options[2].Text" />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q3_Options[3].Text" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q3_Options[4].Text" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q3_Options[5].Text" />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[3].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[3].Id)" />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[3].Id)"  />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[3].Id)"  />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[3].Id)"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[3].Id)"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[3].Id)"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q4_Options[0].Text" />
+                <input class="form-control" placeholder="Option 2" asp-for="Q4_Options[1].Text" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q4_Options[2].Text" />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q4_Options[3].Text"  />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q4_Options[4].Text"  />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q4_Options[5].Text"  />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[4].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[4].Id)"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q5_Options[0].Text"  />
+                <input class="form-control" placeholder="Option 2" asp-for="Q5_Options[1].Text" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q5_Options[2].Text"  />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q5_Options[3].Text"  />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q5_Options[4].Text"  />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q5_Options[5].Text"  />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions[5].Text" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
-                <input class="form-control" placeholder="Option 2" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
-                <input class="form-control" placeholder="Option 3 (Optional)" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
-                <input class="form-control" placeholder="Option 4 (Optional)" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" value="@Model.GetNextOption(Model.Questions[5].Id)"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q6_Options[0].Text"  />
+                <input class="form-control" placeholder="Option 2" asp-for="Q6_Options[1].Text"  />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q6_Options[2].Text"  />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q6_Options[3].Text" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q6_Options[4].Text"  />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q6_Options[5].Text"  />
             </div>
         </div>
     </div>

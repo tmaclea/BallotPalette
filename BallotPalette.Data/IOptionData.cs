@@ -10,8 +10,10 @@ namespace BallotPalette.Data
     {
         IEnumerable<Option> GetOptionsByQuestion(int questionId);
 
+        //Deletes all options associated with a question
+        IEnumerable<Option> Clear(int questionId);
+
         Option Add(Option newOption);
-        Option Update(Option updatedOption);
     }
 
     public class InMemoryOptionData : IOptionData
@@ -78,6 +80,12 @@ namespace BallotPalette.Data
             }
 
             return updatedOption;
+        }
+
+        public IEnumerable<Option> Clear(int questionId)
+        {
+            options = options.Except(GetOptionsByQuestion(questionId)).ToList();
+            return options;
         }
 
         public int Commit()

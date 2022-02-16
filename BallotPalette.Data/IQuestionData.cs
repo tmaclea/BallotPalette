@@ -11,6 +11,7 @@ namespace BallotPalette.Data
         IEnumerable<Question> GetQuestionsByBallot(int ballotId);
         Question Add(Question newQuestion);
         Question Update(Question updatedQuestion);
+        void Delete(Question question);
     }
 
     public class InMemoryQuestionData : IQuestionData
@@ -41,6 +42,11 @@ namespace BallotPalette.Data
 
         public Question Add(Question newQuestion)
         {
+            if(string.IsNullOrEmpty(newQuestion.Text))
+            {
+                return newQuestion;
+            }
+
             newQuestion.Id = questions.Max(q => q.Id) + 1;
             questions.Add(newQuestion);
             return newQuestion;
@@ -55,6 +61,12 @@ namespace BallotPalette.Data
             }
 
             return question;
+        }
+
+        public void Delete(Question question)
+        {
+            questions.Remove(question);
+
         }
 
         public int Commnit()
