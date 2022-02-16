@@ -89,39 +89,39 @@ namespace BallotPalette.Pages.Ballots
                     x++;
                 };
 
-                //Fill option arrays with empty options so that populating them is in-range
-                //Should stear away from hard-coding the question IDs like this
-                for (int i = 0; i < MAX_OPTIONS; i++)
-                {
-                    if (Q1_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q1_Options.Add(new Option() { Id = question_Ids[0], Text = string.Empty });
-                    }
-                    if (Q2_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q2_Options.Add(new Option() { Id = question_Ids[1], Text = string.Empty });
-                    }
-                    if (Q3_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q3_Options.Add(new Option() { Id = question_Ids[2], Text = string.Empty });
-                    }
-                    if (Q4_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q4_Options.Add(new Option() { Id = question_Ids[3], Text = string.Empty });
-                    }
-                    if (Q5_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q5_Options.Add(new Option() { Id = question_Ids[4], Text = string.Empty });
-                    }
-                    if (Q6_Options.ElementAtOrDefault(i) == null)
-                    {
-                        Q6_Options.Add(new Option() { Id = question_Ids[5], Text = string.Empty });
-                    }
-                }
-
             } else
             {
                 Ballot = new Ballot();
+            }
+
+            //Fill option arrays with empty options so that populating them is in-range
+            //Should stear away from hard-coding the question IDs like this
+            for (int i = 0; i < MAX_OPTIONS; i++)
+            {
+                if (Q1_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q1_Options.Add(new Option() { Id = question_Ids[0], Text = string.Empty });
+                }
+                if (Q2_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q2_Options.Add(new Option() { Id = question_Ids[1], Text = string.Empty });
+                }
+                if (Q3_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q3_Options.Add(new Option() { Id = question_Ids[2], Text = string.Empty });
+                }
+                if (Q4_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q4_Options.Add(new Option() { Id = question_Ids[3], Text = string.Empty });
+                }
+                if (Q5_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q5_Options.Add(new Option() { Id = question_Ids[4], Text = string.Empty });
+                }
+                if (Q6_Options.ElementAtOrDefault(i) == null)
+                {
+                    Q6_Options.Add(new Option() { Id = question_Ids[5], Text = string.Empty });
+                }
             }
 
             if (Ballot == null)
