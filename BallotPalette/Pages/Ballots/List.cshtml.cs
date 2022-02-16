@@ -14,6 +14,9 @@ namespace BallotPalette.Pages
         private readonly IBallotData ballotData;
         public IEnumerable<Ballot> Ballots { get; set; }
 
+        [TempData]
+        public string Message { get; set; }
+
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
 

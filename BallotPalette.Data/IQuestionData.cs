@@ -12,6 +12,7 @@ namespace BallotPalette.Data
         Question Add(Question newQuestion);
         Question Update(Question updatedQuestion);
         void Delete(Question question);
+        int Commit();
     }
 
     public class InMemoryQuestionData : IQuestionData
@@ -69,7 +70,7 @@ namespace BallotPalette.Data
 
         }
 
-        public int Commnit()
+        public int Commit()
         {
             return 0;
         }

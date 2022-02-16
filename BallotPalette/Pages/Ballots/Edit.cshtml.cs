@@ -208,8 +208,10 @@ namespace BallotPalette.Pages.Ballots
 
             Ballot = ballotData.Update(Ballot);
             ballotData.Commit();
+            questionData.Commit();
+            optionData.Commit();
             TempData["Message"] = "Ballot saved";
-            return RedirectToPage("./Detail", new { ballotId = Ballot.Id }); 
+            return RedirectToPage("./List"); 
         }
     }
 }

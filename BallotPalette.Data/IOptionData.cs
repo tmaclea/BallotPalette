@@ -12,8 +12,10 @@ namespace BallotPalette.Data
 
         //Deletes all options associated with a question
         IEnumerable<Option> Clear(int questionId);
+        Option Vote(int optionId);
 
         Option Add(Option newOption);
+        int Commit();
     }
 
     public class InMemoryOptionData : IOptionData
@@ -86,6 +88,18 @@ namespace BallotPalette.Data
         {
             options = options.Except(GetOptionsByQuestion(questionId)).ToList();
             return options;
+        }
+
+        public Option Vote(int optionId)
+        {
+            var option = options.SingleOrDefault(o => o.Id == optionId);
+
+            if(option != null)
+            {
+                option.NumVotes++;
+            }
+
+            return option;
         }
 
         public int Commit()

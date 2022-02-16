@@ -6,10 +6,15 @@
 
 <h1>Ballots</h1>
 
+@if (Model.Message != null)
+{
+    <div class="alert alert-info">@Model.Message</div>
+}
+
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="search" class="form-control" 
+            <input type="search" class="form-control"
                    asp-for="SearchTerm" />
             <span class="input-group-btn">
                 <button class="btn btn-default">
@@ -24,21 +29,21 @@
 
     @foreach (var ballot in Model.Ballots)
     {
-    <tr>
-        <td>@ballot.Id</td>
-        <td>@ballot.Name</td>
-        <td>@ballot.TeamId</td>
-        <td>
-            <a class="btn btn-lg" asp-page="./Detail" asp-route-ballotId="@ballot.Id">
-                <i class="icono-eye"></i>
-            </a>
-        </td>
-        <td>
-            <a class="btn btn-lg" asp-page="./Edit" asp-route-ballotId="@ballot.Id">
-                <i class="icono-rename"></i>
-            </a>
-        </td>
-    </tr>
+        <tr>
+            <td>@ballot.Id</td>
+            <td>@ballot.Name</td>
+            <td>@ballot.TeamId</td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Detail" asp-route-ballotId="@ballot.Id">
+                    <i class="icono-eye"></i>
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-lg" asp-page="./Edit" asp-route-ballotId="@ballot.Id">
+                    <i class="icono-rename"></i>
+                </a>
+            </td>
+        </tr>
     }
 </table>
 
