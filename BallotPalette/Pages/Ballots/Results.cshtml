@@ -6,3 +6,51 @@
 
 <h1>Results</h1>
 
+<div class="row mb-5">
+
+    @foreach (var question in Model.Questions)
+    {
+        <div class="col-md-4 order-md-1">
+            <div class="mb-3">
+                <canvas id="@question.Id" style="width:100%;max-width:300px"></canvas>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/lib/Chart.js//Chart.min.js"></script>
+<script type="text/javascript">
+    @foreach(var question in Model.Questions)
+    {
+        <text>
+        var context_@question.Id = document.getElementById("@question.Id").getContext('2d');
+        var data_@question.Id = {
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: ['red', 'orange', 'yellow'],
+            }],
+            labels: [
+                'test 1', 'test 2', 'test 3',
+            ]
+        };
+
+        const chart_@question.Id = new Chart(context_@question.Id,  {
+            type: 'pie',
+            data: data_@question.Id,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '@question.Text'
+                    }
+                }
+            },
+        });
+        </text>
+    }
+</script>
+

@@ -12,17 +12,29 @@ namespace BallotPalette.Pages.Ballots
     public class ResultsModel : PageModel
     {
         private readonly IBallotData ballotData;
+        private readonly IQuestionData questionData;
+        private readonly IOptionData optionData;
 
         public Ballot Ballot { get; set; }
+        public List<Question> Questions { get; set; }
+        public List<Option> Options { get; set; }
 
-        public ResultsModel(IBallotData ballotData)
+        public ResultsModel(IBallotData ballotData, IQuestionData questionData, IOptionData optionData)
         {
             this.ballotData = ballotData;
+            this.questionData = questionData;
+            this.optionData = optionData;
         }
 
         public IActionResult OnGet(int ballotId)
         {
             Ballot = ballotData.GetBallotById(ballotId);
+            Questions = questionData.GetQuestionsByBallot(Ballot.Id).ToList();
+            Options = new List<Option>();
+            foreach(Question q in Questions)
+            {
+                Options.AddRange(optionData.GetOptionsByQuestion(q.Id).ToList());
+            }
 
             if (Ballot == null)
             {
@@ -30,6 +42,19 @@ namespace BallotPalette.Pages.Ballots
             }
 
             return Page();
+        }
+
+        public string GetLabels(int questionId)
+        {
+            string labels = "'";
+            List<Option> questionOptions = optionData.GetOptionsByQuestion(questionId).ToList();
+
+            foreach(Option o in questionOptions)
+            {
+                labels += o.Text + "',";
+            }
+
+            return labels;
         }
     }
 }
