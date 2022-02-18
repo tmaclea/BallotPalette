@@ -26,16 +26,16 @@ namespace BallotPalette.Data
         {
             options = new List<Option>
             {
-                new Option { Id = 1, QuestionId = 1, Text = "Choice number 1", NumVotes = 0 },
-                new Option { Id = 2, QuestionId = 1, Text = "Choice number 2", NumVotes = 1 },
-                new Option { Id = 3, QuestionId = 1, Text = "Choice number 3", NumVotes = 0 },
+                new Option { Id = 1, QuestionId = 1, Text = "Choice number 1", NumVotes = 1 },
+                new Option { Id = 2, QuestionId = 1, Text = "Choice number 2", NumVotes = 2 },
+                new Option { Id = 3, QuestionId = 1, Text = "Choice number 3", NumVotes = 4 },
                 new Option { Id = 4, QuestionId = 1, Text = "Choice number 4", NumVotes = 8 },
                 new Option { Id = 5, QuestionId = 2, Text = "Choice number 5", NumVotes = 7 },
                 new Option { Id = 6, QuestionId = 2, Text = "Choice number 6", NumVotes = 4 },
-                new Option { Id = 7, QuestionId = 3, Text = "Choice number 7", NumVotes = 0 },
-                new Option { Id = 8, QuestionId = 3, Text = "Choice number 8", NumVotes = 8 },
-                new Option { Id = 9, QuestionId = 3, Text = "Choice number 9", NumVotes = 0 },
-                new Option { Id = 10, QuestionId = 4, Text = "Choice number 10", NumVotes = 0 },
+                new Option { Id = 7, QuestionId = 3, Text = "Choice number 7", NumVotes = 3 },
+                new Option { Id = 8, QuestionId = 3, Text = "Choice number 8", NumVotes = 5 },
+                new Option { Id = 9, QuestionId = 3, Text = "Choice number 9", NumVotes = 7 },
+                new Option { Id = 10, QuestionId = 4, Text = "Choice number 10", NumVotes = 6 },
                 new Option { Id = 11, QuestionId = 4, Text = "Choice number 11", NumVotes = 6 },
                 new Option { Id = 12, QuestionId = 5, Text = "Choice number 12", NumVotes = 5 },
                 new Option { Id = 13, QuestionId = 5, Text = "Choice number 13", NumVotes = 0 },

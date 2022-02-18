@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using BallotPalette.Core;
 using BallotPalette.Data;
@@ -19,7 +21,8 @@ namespace BallotPalette.Pages.Ballots
         public List<Question> Questions { get; set; }
         public List<Option> Options { get; set; }
 
-        public ResultsModel(IBallotData ballotData, IQuestionData questionData, IOptionData optionData)
+        public ResultsModel(IBallotData ballotData, IQuestionData questionData, 
+                        IOptionData optionData)
         {
             this.ballotData = ballotData;
             this.questionData = questionData;
@@ -46,15 +49,28 @@ namespace BallotPalette.Pages.Ballots
 
         public string GetLabels(int questionId)
         {
-            string labels = "'";
+            string labels = string.Empty;
             List<Option> questionOptions = optionData.GetOptionsByQuestion(questionId).ToList();
 
             foreach(Option o in questionOptions)
             {
-                labels += o.Text + "',";
+                labels += "'" +  o.Text + "',";
             }
 
             return labels;
+        }
+
+        public string GetData(int questionId)
+        {
+            string data = string.Empty;
+            List<Option> questionOptions = optionData.GetOptionsByQuestion(questionId).ToList();
+
+            foreach(Option o in questionOptions)
+            {
+                data += o.NumVotes.ToString() + ",";
+            }
+
+            return data;
         }
     }
 }
