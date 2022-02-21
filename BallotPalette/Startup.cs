@@ -6,6 +6,7 @@ using BallotPalette.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,9 +25,19 @@ namespace BallotPalette
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IBallotData, InMemoryBallotData>();
-            services.AddSingleton<IQuestionData, InMemoryQuestionData>();
-            services.AddSingleton<IOptionData, InMemoryOptionData>();
+            services.AddDbContextPool<BallotPaletteDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("BallotPaletteDb"));
+            });
+
+            //for testing
+            //services.AddSingleton<IBallotData, InMemoryBallotData>();
+            //services.AddSingleton<IQuestionData, InMemoryQuestionData>();
+            //services.AddSingleton<IOptionData, InMemoryOptionData>();
+
+            services.AddScoped<IBallotData, SqlBallotData>();
+            services.AddScoped<IQuestionData, SqlQuestionData>();
+            services.AddScoped<IOptionData, SqlOptionData>();
             services.AddRazorPages();
         }
 
