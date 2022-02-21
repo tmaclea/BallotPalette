@@ -17,6 +17,8 @@ namespace BallotPalette.Data
         public Ballot Add(Ballot newBallot)
         {
             db.Ballots.Add(newBallot);
+            //need to commit here to ensure correct Id output
+            Commit();
             return newBallot;
         }
 

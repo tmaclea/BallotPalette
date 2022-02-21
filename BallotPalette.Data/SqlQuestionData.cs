@@ -18,6 +18,8 @@ namespace BallotPalette.Data
         public Question Add(Question newQuestion)
         {
             db.Questions.Add(newQuestion);
+            //I must commit changes because I need the Id value in the output
+            Commit();
             return newQuestion;
         }
 

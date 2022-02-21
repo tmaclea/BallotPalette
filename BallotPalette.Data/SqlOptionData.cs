@@ -42,10 +42,10 @@ namespace BallotPalette.Data
             if(option != null)
             {
                 option.NumVotes++;
+                var entity = db.Options.Attach(option);
+                entity.State = EntityState.Modified;
             }
             
-            var entity = db.Options.Attach(option);
-            entity.State = EntityState.Modified;
             return option;
         }
 
