@@ -141,11 +141,11 @@ namespace BallotPalette.Pages.Ballots
 
             if(Ballot.Id > 0)
             {
-                ballotData.Update(Ballot);
+                Ballot = ballotData.Update(Ballot);
             }
             else
             {
-                ballotData.Add(Ballot);
+                Ballot = ballotData.Add(Ballot);
             }
 
             //add/update/remove questions
@@ -206,7 +206,6 @@ namespace BallotPalette.Pages.Ballots
                 }
             }
 
-            Ballot = ballotData.Update(Ballot);
             ballotData.Commit();
             questionData.Commit();
             optionData.Commit();
