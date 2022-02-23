@@ -9,7 +9,7 @@
 #### Ballot list page
 - [x] Ballots can be clicked on to view the ballot detail
 - [ ] Delete button
-- [ ] Remove errant column of 0's
+- [x] Remove errant column of 0's
 
 #### Ballot detail page
 - [x] should show questions for a ballot
@@ -19,8 +19,7 @@
 - [x] Show charts with number of votes for each question
 
 #### Reports page
-- [ ] must fulfill requirement #4
-- [ ] Make simple, give user option to select fields and just list the fields out in a table or something
+- [x] must fulfill requirement #4
 
 #### Database
 - [x] Add database

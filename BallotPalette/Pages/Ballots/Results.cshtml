@@ -19,10 +19,10 @@
     }
 </div>
 
-<button id="get_report" class="btn btn-lg btn-block btn-primary" onclick="showReport()">Get report</button>
+<button id="get_report" class="btn btn-lg btn-block btn-primary" onclick="showReport()">Show report</button>
 <div id="report" class="collapse">
     <h3>Report for @Model.Ballot.Name</h3>
-    <h4>@Model.time</h4>
+    <h4>Status at @Model.time</h4>
     <table class="table">
         @foreach (var question in Model.Questions)
         {
