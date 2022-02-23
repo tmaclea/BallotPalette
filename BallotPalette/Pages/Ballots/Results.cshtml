@@ -4,14 +4,14 @@
     ViewData["Title"] = "Results";
 }
 
-<h1>Results</h1>
+<h1>Results for @Model.Ballot.Name</h1>
 
-<div class="row mb-5">
+<div class="row mb-2">
 
     @foreach (var question in Model.Questions)
     {
         <div class="col-md-4 order-md-1">
-            <div class="mb-3">
+            <div class="mb-2">
                 <h3>@question.Text</h3>
                 <canvas id="@question.Id" style="width:100%;max-width:700px"></canvas>
             </div>
@@ -19,8 +19,43 @@
     }
 </div>
 
+<button id="get_report" class="btn btn-lg btn-block btn-primary" onclick="showReport()">Get report</button>
+<div id="report" class="collapse">
+    <h3>Report for @Model.Ballot.Name</h3>
+    <h4>@Model.time</h4>
+    <table class="table">
+        @foreach (var question in Model.Questions)
+        {
+            <tr>
+                <th></th>
+                @foreach (var option in Model.GetOptionsByQuestion(question.Id))
+                {
+
+                    <th>@option.Text</th>
+                }
+                <th>Total votes</th>
+            </tr>
+            <tr>
+                <td>@question.Text</td>
+                @foreach (var option in Model.GetOptionsByQuestion(question.Id))
+                {
+
+                    <td>@option.NumVotes votes</td>
+                }
+                <td>@Model.GetTotalVotes(question.Id) votes</td>
+            </tr>
+        }
+    </table>
+</div>
+
 <script src="~/lib/Chart.js//Chart.min.js"></script>
 <script type="text/javascript">
+
+    function showReport() {
+        var div = document.getElementById('report');
+        div.className = div.className == "collapse" ? "btn-block" : "collapse";
+    }
+
     @foreach(var question in Model.Questions)
     {
         <text>

@@ -20,6 +20,7 @@ namespace BallotPalette.Pages.Ballots
         public Ballot Ballot { get; set; }
         public List<Question> Questions { get; set; }
         public List<Option> Options { get; set; }
+        public DateTime time { get; set; }
 
         public ResultsModel(IBallotData ballotData, IQuestionData questionData, 
                         IOptionData optionData)
@@ -34,6 +35,8 @@ namespace BallotPalette.Pages.Ballots
             Ballot = ballotData.GetBallotById(ballotId);
             Questions = questionData.GetQuestionsByBallot(Ballot.Id).ToList();
             Options = new List<Option>();
+            time = DateTime.Now;
+
             foreach(Question q in Questions)
             {
                 Options.AddRange(optionData.GetOptionsByQuestion(q.Id).ToList());
@@ -71,6 +74,20 @@ namespace BallotPalette.Pages.Ballots
             }
 
             return data;
+        }
+
+        public List<Option> GetOptionsByQuestion(int questionId)
+        {
+            return optionData.GetOptionsByQuestion(questionId).ToList();
+        }
+        public int GetTotalVotes(int questionId)
+        {
+            int total = 0;
+            foreach(Option o in optionData.GetOptionsByQuestion(questionId))
+            {
+                total += o.NumVotes;
+            }
+            return total;
         }
     }
 }
