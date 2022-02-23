@@ -1,0 +1,14 @@
+﻿@page "{BallotId}"
+@model BallotPalette.Pages.Ballots.DeleteModel
+@{
+}
+
+<h2>You are about to delete the ballot: @Model.Ballot.Name</h2>
+<div class="alert alert-danger">
+    Are you sure you want to do this?
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Yes!</button>
+    <a asp-page="List" class="btn btn-default">Cancel</a>
+</form>

@@ -7,12 +7,10 @@ namespace BallotPalette.Data
     public interface IOptionData
     {
         IEnumerable<Option> GetOptionsByQuestion(int questionId);
-
+        Option Vote(int optionId);
+        Option Add(Option newOption);
         //Deletes all options associated with a question
         IEnumerable<Option> Clear(int questionId);
-        Option Vote(int optionId);
-
-        Option Add(Option newOption);
         int Commit();
     }
 }
