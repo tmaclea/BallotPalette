@@ -6,7 +6,7 @@
 
 <h1>Editing @Model.Ballot.Name</h1>
 
-<form method="post">
+<form id="edit-create" method="post">
     <input type="hidden" asp-for="Ballot.Id" />
     <div class="form-group">
         <label asp-for="Ballot.Name"></label>
@@ -30,18 +30,18 @@
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions_text[1]" placeholder="Question" />
                 <input class="form-control" placeholder="Option 1" asp-for="Q2_Options[0]" />
-                <input class="form-control" placeholder="Option 2" asp-for="Q2_Options[1]"  />
-                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q2_Options[2]"  />
-                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q2_Options[3]"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q2_Options[4]"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q2_Options[5]"  />
+                <input class="form-control" placeholder="Option 2" asp-for="Q2_Options[1]" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q2_Options[2]" />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q2_Options[3]" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q2_Options[4]" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q2_Options[5]" />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions_text[2]" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" asp-for="Q3_Options[0]"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q3_Options[0]" />
                 <input class="form-control" placeholder="Option 2" asp-for="Q3_Options[1]" />
                 <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q3_Options[2]" />
                 <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q3_Options[3]" />
@@ -56,33 +56,33 @@
                 <input class="form-control" placeholder="Option 1" asp-for="Q4_Options[0]" />
                 <input class="form-control" placeholder="Option 2" asp-for="Q4_Options[1]" />
                 <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q4_Options[2]" />
-                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q4_Options[3]"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q4_Options[4]"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q4_Options[5]"  />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q4_Options[3]" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q4_Options[4]" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q4_Options[5]" />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions_text[4]" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" asp-for="Q5_Options[0]"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q5_Options[0]" />
                 <input class="form-control" placeholder="Option 2" asp-for="Q5_Options[1]" />
-                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q5_Options[2]"  />
-                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q5_Options[3]"  />
-                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q5_Options[4]"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q5_Options[5]"  />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q5_Options[2]" />
+                <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q5_Options[3]" />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q5_Options[4]" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q5_Options[5]" />
             </div>
         </div>
 
         <div class="col-md-4 order-md-1">
             <div class="mb-3">
                 <input class="form-control" asp-for="Questions_text[5]" placeholder="Question" />
-                <input class="form-control" placeholder="Option 1" asp-for="Q6_Options[0]"  />
-                <input class="form-control" placeholder="Option 2" asp-for="Q6_Options[1]"  />
-                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q6_Options[2]"  />
+                <input class="form-control" placeholder="Option 1" asp-for="Q6_Options[0]" />
+                <input class="form-control" placeholder="Option 2" asp-for="Q6_Options[1]" />
+                <input class="form-control" placeholder="Option 3 (Optional)" asp-for="Q6_Options[2]" />
                 <input class="form-control" placeholder="Option 4 (Optional)" asp-for="Q6_Options[3]" />
-                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q6_Options[4]"  />
-                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q6_Options[5]"  />
+                <input class="form-control" placeholder="Option 5 (Optional)" asp-for="Q6_Options[4]" />
+                <input class="form-control" placeholder="Option 6 (Optional)" asp-for="Q6_Options[5]" />
             </div>
         </div>
     </div>
@@ -90,3 +90,113 @@
         <button type="submit" class="btn btn-lg btn-block btn-primary">Submit Ballot and continue</button>
     </div>
 </form>
+
+
+<script>
+    $("#edit-create").validate({
+        rules: {
+            'Q1_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_0_").length > 0;
+                }
+            },
+            'Q1_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_0_").length > 0;
+                }
+            },
+            'Q2_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_1_").length > 0;
+                }
+            },
+            'Q2_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_1_").length > 0;
+                }
+            },
+            'Q3_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_2_").length > 0;
+                }
+            },
+            'Q3_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_2_").length > 0;
+                }
+            },
+            'Q4_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_3_").length > 0;
+                }
+            },
+            'Q4_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_3_").length > 0;
+                }
+            },
+            'Q5_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_4_").length > 0;
+                }
+            },
+            'Q5_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_4_").length > 0;
+                }
+            },
+            'Q6_Options[0]': {
+                required: function (element) {
+                    return $("#Questions_text_5_").length > 0;
+                }
+            },
+            'Q6_Options[1]': {
+                required: function (element) {
+                    return $("#Questions_text_5_").length > 0;
+                }
+            }
+        },
+        messages: {
+            'Q1_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q1_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+            'Q2_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q2_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+            'Q3_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q3_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+            'Q4_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q4_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+            'Q5_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q5_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+            'Q6_Options[0]': {
+                required: "Questions must have at least two options"
+            },
+            'Q6_Options[1]': {
+                required: "Questions must have at least two options"
+            },
+        }
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
