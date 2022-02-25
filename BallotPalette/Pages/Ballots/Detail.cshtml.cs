@@ -55,7 +55,16 @@ namespace BallotPalette.Pages.Ballots
         {
             foreach(KeyValuePair<string, int> entry in Selections)
             {
-                optionData.Vote(entry.Value);
+                try
+                {
+                    optionData.Vote(entry.Value);
+                }
+                catch(ArgumentNullException e)
+                {
+                    Console.WriteLine("Voted on a null ballot");
+                    Console.WriteLine(e);
+                }
+                    
             }
 
             optionData.Commit();

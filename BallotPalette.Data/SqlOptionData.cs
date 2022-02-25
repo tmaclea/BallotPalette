@@ -44,6 +44,9 @@ namespace BallotPalette.Data
                 option.NumVotes++;
                 var entity = db.Options.Attach(option);
                 entity.State = EntityState.Modified;
+            }else
+            {
+                throw new ArgumentNullException();
             }
             
             return option;
