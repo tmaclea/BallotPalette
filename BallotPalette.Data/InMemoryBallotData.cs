@@ -59,6 +59,18 @@ namespace BallotPalette.Data
             return ballot;
         }
 
+        public Ballot Delete(string name)
+        {
+            var ballot = ballots.FirstOrDefault(b => b.Name == name);
+
+            if (ballot != null)
+            {
+                ballots.Remove(ballot);
+            }
+
+            return ballot;
+        }
+
         public IEnumerable<Ballot> GetBallotsByName(string name = null)
         {
             return from b in ballots

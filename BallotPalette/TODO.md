@@ -30,7 +30,7 @@
 
 #### Miscellaneous
 - [ ] Find somewhere to put exception controls as per requirement #5
-- [ ] Polymorphism might not have been fulfilled, look around
+- [x] Polymorphism might not have been fulfilled, look around
 - [ ] Unit test
 
 ### REQUIREMENTS

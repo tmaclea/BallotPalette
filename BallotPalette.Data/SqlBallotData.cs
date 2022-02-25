@@ -33,6 +33,18 @@ namespace BallotPalette.Data
             return ballot;
         }
 
+        public Ballot Delete(string name)
+        {
+            var ballot = db.Ballots.FirstOrDefault(b => b.Name == name);
+
+            if (ballot != null)
+            {
+                db.Ballots.Remove(ballot);
+            }
+
+            return ballot;
+        }
+
         public Ballot GetBallotById(int id)
         {
             return db.Ballots.Find(id);
@@ -59,6 +71,5 @@ namespace BallotPalette.Data
         {
             return db.SaveChanges();
         }
-
     }
 }

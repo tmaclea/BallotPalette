@@ -11,6 +11,7 @@ namespace BallotPalette.Data
         Ballot Update(Ballot updatedBallot);
         Ballot Add(Ballot newBallot);
         Ballot Delete(int id);
+        Ballot Delete(string name);
         int Commit();
     }
 }
