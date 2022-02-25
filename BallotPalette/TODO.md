@@ -4,11 +4,11 @@
 - [x] five or so answer input boxes
 - [x] bind question text input boxes to the view model
 - [x] bind option text boxes to the view model
-- [ ] fix input validation
+- [x] fix input validation
 
 #### Ballot list page
 - [x] Ballots can be clicked on to view the ballot detail
-- [ ] Delete button
+- [x] Delete button
 - [x] Remove errant column of 0's
 
 #### Ballot detail page
@@ -25,13 +25,11 @@
 - [x] Add database
 - [x] Implement database in data access classes
 
-#### Aesthetic changes
-- [ ] Idk, make all the pages look pretty
 
 #### Miscellaneous
-- [ ] Find somewhere to put exception controls as per requirement #5
+- [x] Find somewhere to put exception controls as per requirement #5
 - [x] Polymorphism might not have been fulfilled, look around
-- [ ] Unit test
+- [x] Unit test
 
 ### REQUIREMENTS
 
